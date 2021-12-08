@@ -14,11 +14,7 @@ export default class AviaSalesApi extends React.Component {
     */
     async getResponsePromiseSearchID() {
         let result = '';
-        await axios.get(this.requestSearchIdUrl).then(response => {
-            if (response.status === 200) {
-                result = response;
-            }
-        });
+        await axios.get(this.requestSearchIdUrl);
         return result;
     }
 
@@ -26,20 +22,22 @@ export default class AviaSalesApi extends React.Component {
         На основе асинхронного промисв получить айди запроса
     */
     setSearchID() {
-        this.getResponsePromiseSearchID().then(response=>{
-            this.searchID = response.data.searchId;
-        })
-    }
+        this.getResponsePromiseSearchID().then(response => {
+                if (response.status === 200) {
+                    this.setSearchID = response.data.searchID;
+                }
+            })
+        }
 
     getSearchID() {
-        return this.searchID;
-    }
+            return this.searchID;
+        }
 
     getTicketsPack() {
 
-        // await axios.get(this.requestTicketsPack + this.getSearchID())
-        // .then(response => {
-        //     console.log('response', response);
-        // })
-    }
+            // await axios.get(this.requestTicketsPack + this.getSearchID())
+            // .then(response => {
+            //     console.log('response', response);
+            // })
+        }
 }

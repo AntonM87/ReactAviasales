@@ -4,9 +4,9 @@ import './App.css'
 export default function App(){
 
   const aviaSalesApi = new AviaSalesApi();
-  aviaSalesApi.setSearchID();
-  const searchID = aviaSalesApi.getSearchID();
-  console.log('searchID', searchID);
+  // aviaSalesApi.setSearchID();
+  // const searchID =aviaSalesApi.getSearchID();
+  console.log('searchID', aviaSalesApi.getResponsePromiseSearchID);
 
   return (
     <div>
