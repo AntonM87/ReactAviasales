@@ -1,43 +1,21 @@
-import React from "react";
 import axios from "axios";
 
-export default class AviaSalesApi extends React.Component {
-    constructor(props) {
-        super(props);
+export default class AviaSalesApi {
+
+    constructor() {
         this.requestSearchIdUrl = 'https://front-test.beta.aviasales.ru/search';
         this.requestTicketsPackUrl = 'https://front-test.beta.aviasales.ru/tickets?searchId='
-        this.searchID = null;
+        this.searchID = 0;
     }
 
-    /*
-        получить асинхронно промис
-    */
-    async getResponsePromiseSearchID() {
+    async getTokenSearchID() {
         let result = '';
-        await axios.get(this.requestSearchIdUrl);
-        return result;
-    }
-
-    /*
-        На основе асинхронного промисв получить айди запроса
-    */
-    setSearchID() {
-        this.getResponsePromiseSearchID().then(response => {
-                if (response.status === 200) {
-                    this.setSearchID = response.data.searchID;
+        await axios.get(this.requestSearchIdUrl)
+            .then(resp => {
+                if (resp.status === 200) {
+                    result = resp.data.searchID;
                 }
             })
-        }
-
-    getSearchID() {
-            return this.searchID;
-        }
-
-    getTicketsPack() {
-
-            // await axios.get(this.requestTicketsPack + this.getSearchID())
-            // .then(response => {
-            //     console.log('response', response);
-            // })
-        }
+        return result;
+    }
 }

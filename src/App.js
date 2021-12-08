@@ -1,12 +1,10 @@
 import AviaSalesApi from './AviaSalesApi/AviaSalesApi'
 import './App.css'
 
-export default function App(){
+export default function App() {
 
-  const aviaSalesApi = new AviaSalesApi();
-  // aviaSalesApi.setSearchID();
-  // const searchID =aviaSalesApi.getSearchID();
-  console.log('searchID', aviaSalesApi.getResponsePromiseSearchID);
+  const a =  new AviaSalesApi().getTokenSearchID();
+  console.log('a',a);
 
   return (
     <div>
