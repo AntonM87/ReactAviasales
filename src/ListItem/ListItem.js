@@ -1,16 +1,19 @@
-// import Item from '../Item';
+import Item from '../Item/Item'
 
-// function ListItem(props) {
-//     const { items } = props.items;
-//     return (
-//         <ul>
-//             {
-//                 items.map((i, ticket) => {
-//                     <Item key={i} ticket={ticket} />
-//                 })
-//             }
-//         </ul>
-//     )
-// }
+export default function ListItem(props) {
 
-// export default ListItem;
+    const { tickets } = props;
+    console.log('tickets', tickets);
+
+    return (
+        <ul>
+            {
+                // <Item ticket={tickets[0]} />
+                tickets.map((i, ticket) => {
+                    if (i >= 25) return;
+                    return <Item ticket={ticket} />
+                })
+            }
+        </ul>
+    )
+}
