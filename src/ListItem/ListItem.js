@@ -1,19 +1,21 @@
+import SortSelectionPanel from '../SortSelectionPanel/SortSelectionPanel';
 import Item from '../Item/Item'
+import './ListItem.css';
 
 export default function ListItem(props) {
 
     const { tickets } = props;
-    console.log('tickets', tickets);
 
     return (
-        <ul>
-            {
-                // <Item ticket={tickets[0]} />
-                tickets.map((i, ticket) => {
-                    if (i >= 25) return;
-                    return <Item ticket={ticket} />
-                })
-            }
-        </ul>
+        <div>
+            <SortSelectionPanel />
+            <ul className='main__content__container'>
+                {
+                    tickets.map((ticket, i) => {
+                        return <Item key={i} ticket={ticket} />
+                    })
+                }
+            </ul>
+        </div>
     )
 }

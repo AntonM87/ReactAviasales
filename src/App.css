@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+.main__container {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-around;
+  padding: 0 103px;
+}
+
+.main__container .main__content__container{
+  width: 532px;
+  background: white;
+}
+
+.main__container .main__selected__container{
+  width: 232px;
+  margin-right: 20px;
+}
+
+#root div .main__logo {
+  width: 100%;
+  margin: auto;
+}
+#root div .main__logo img.main__logo__img {
+  /* width: 60px;
+  height: 52px; */
+  display: block;
+  margin: 0 auto;
+  padding-top: 29px;
+  padding-bottom: 25px;
+}

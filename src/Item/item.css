@@ -1,0 +1,22 @@
+li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+li div {
+  display: inline-block;
+}
+li div:first-child {
+  margin-right: 10px;
+}
+
+.logo{
+    background-color: rgb(146, 252, 40);
+    width: 36px;
+    height: 36px;
+    color: white;
+    font-weight: 900;
+    border-radius: 50%;
+    padding: 20px;
+}

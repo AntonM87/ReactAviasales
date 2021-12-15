@@ -2,6 +2,8 @@ import React from 'react';
 import AviasalesAPI from './AviasalesAPI/AviasalesAPI';
 import './App.css';
 import ListItem from './ListItem/ListItem';
+import SortSelection from './SortSelection/SortSelection';
+import MainLogo from './MainLogo/MainLogo';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -25,12 +27,16 @@ export default class App extends React.Component {
 
   render() {
     const { ticketPackArr } = this.state;
-    console.log('ticketPackArr in render', ticketPackArr);
+    const resArr = ticketPackArr.slice(0, 5);
 
     return (
       <div>
-        <ListItem tickets={ticketPackArr} />
-      </div >
+        <MainLogo />
+        <div className='main__container'>
+          <SortSelection />
+          <ListItem tickets={resArr} />
+        </div >
+      </div>
     );
   }
 }

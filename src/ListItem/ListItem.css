@@ -1,0 +1,14 @@
+ul {
+  list-style: none;
+}
+ul li {
+  height: 184px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+ul li div {
+  display: block;
+}
