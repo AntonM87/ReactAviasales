@@ -14,6 +14,8 @@ export default class App extends React.Component {
     this.state = {
       ticketPackArr: [],
     }
+
+    this.res = '';
   }
 
   async componentDidMount() {
@@ -23,6 +25,8 @@ export default class App extends React.Component {
 
     const ticketPackArr = Object.entries(this.ticketPackObj.tickets);
     this.setState({ ticketPackArr });
+
+
   }
 
   render() {
@@ -34,7 +38,8 @@ export default class App extends React.Component {
         <MainLogo />
         <div className='main__container'>
           <SortSelection />
-          <ListItem tickets={resArr} />
+          {/* обработать отсутсвие билетов */}
+          <ListItem tickets={resArr} /> 
         </div >
       </div>
     );

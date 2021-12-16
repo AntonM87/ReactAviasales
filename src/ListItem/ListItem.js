@@ -16,6 +16,15 @@ export default function ListItem(props) {
                     })
                 }
             </ul>
+            <ShowMoreFragmetn />
         </div>
+    )
+}
+
+function ShowMoreFragmetn(props) {
+    return (
+        <>
+            <button>Показать еще 5 билетов</button>
+        </>
     )
 }

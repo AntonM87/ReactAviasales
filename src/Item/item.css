@@ -1,11 +1,12 @@
 li.ticket__item {
   margin-bottom: 20px;
+  height: auto;
 }
 
 .logo {
   background-color: rgb(145, 211, 80);
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   color: white;
   font-weight: 900;
   border-radius: 50%;
@@ -16,7 +17,7 @@ li.ticket__item {
 
 ul.main__content__container li.ticket__item div.ticket__price__logo {
   height: auto;
-  margin-top: -105px;
+  margin-top: 5px;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 0;
@@ -48,26 +49,43 @@ div.logo span:last-child {
   font-style: italic;
 }
 div.content__row {
+  margin-top: 5px;
   display: flex !important;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: stretch !important;
   align-content: center;
   width: 100%;
+}
+
+div.content__row:last-child{
+  margin-bottom: 20px;
+}
+
+.target__path,
+.path__time,
+.transfers {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 33.3333%;
 }
 
 .target__path div,
 .path__time div,
 .transfers div {
-  border: 1px solid black;
-  width: 33.3333 !important%;
+  /* border: 1px solid black; */
+  width: 33.3333;
 }
 
-.target__path
-  div:first-child
-  .path__time
-  div:first-child
-  .transfers
-  div:first-child {
+.target__path div:first-child,
+.path__time div:first-child,
+.transfers div:first-child {
   font-size: 12px;
   color: rgba(160, 176, 185, 1);
+}
+.target__path div:last-child,
+.path__time div:last-child,
+.transfers div:last-child {
+  font-size: 14px;
+  color: rgba(74, 74, 74, 1);
 }

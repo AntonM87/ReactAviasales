@@ -4,7 +4,6 @@ ul.main__content__container {
   background: #f3f7fa !important;
 }
 ul.main__content__container li {
-  height: 184px;
   display: flex;
   flex-direction: column;
   justify-content: center;
