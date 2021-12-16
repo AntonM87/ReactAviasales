@@ -15,6 +15,8 @@
 }
 .sort__selection__panel label {
   width: 100%;
+  height: 50px;
+  padding-top: 7px;
   display: inline-block;
   cursor: pointer;
   line-height: 34px;
@@ -36,21 +38,23 @@ div.sort__selection__panel label[for="slowly"] {
   border-right: 1px solid #999;
 }
 /* Checked */
-div.sort__selection__panel
-  input[type="radio"][name="sort_selection_panel"]:checked
-  + label {
+#slowly:checked + label,
+#fast:checked + label,
+#optimal:checked + label {
   transition: all linear 0.2s;
   background: #2196f3;
   color: white;
 }
 
 /* Hover */
-/* .sort__selection__panel label:hover {
+.sort__selection__panel label:hover {
   color: #666;
-} */
+}
 
 /* Disabled */
-/* .sort__selection__panel input[type='radio']:disabled + label  {
+#slowly:disabled + label,
+#fast:disabled + label,
+#optimal:disabled + label {
   background: #efefef;
   color: #666;
-} */
+}

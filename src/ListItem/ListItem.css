@@ -1,14 +1,19 @@
-ul {
+ul.main__content__container {
+  all: none;
   list-style: none;
+  background: #f3f7fa !important;
 }
-ul li {
+ul.main__content__container li {
   height: 184px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
+  background: white;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 5px;
 }
 
-ul li div {
+ul.main__content__container li div {
   display: block;
 }

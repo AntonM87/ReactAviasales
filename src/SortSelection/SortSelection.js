@@ -6,24 +6,24 @@ export default function SortSelection() {
             <form>
                 <div>
                     <input type='checkbox' name="all" id="all" />
-                    <label for='all'>Все</label>
+                    <label htmlFor='all'>Все</label>
                 </div>
                 <div>
                     {/* без пересадок */}
                     <input type='checkbox' name="notDirect" id="notDirect" />
-                    <label for='notDirect'>Без пересадок</label>
+                    <label htmlFor='notDirect'>Без пересадок</label>
                 </div>
                 <div>
                     <input type='checkbox' name="one" id="one" />
-                    <label for='one'>1 пересадка</label>
+                    <label htmlFor='one'>1 пересадка</label>
                 </div>
                 <div>
                     <input type='checkbox' name="two" id="two" />
-                    <label for='two'>2 пересадки</label>
+                    <label htmlFor='two'>2 пересадки</label>
                 </div>
                 <div>
                     <input type='checkbox' name="three" id="three" />
-                    <label for='three'>3 пересадки</label>
+                    <label htmlFor='three'>3 пересадки</label>
                 </div>
             </form>
         </div>

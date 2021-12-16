@@ -1,22 +1,73 @@
-li {
+li.ticket__item {
+  margin-bottom: 20px;
+}
+
+.logo {
+  background-color: rgb(145, 211, 80);
+  width: 36px;
+  height: 36px;
+  color: white;
+  font-weight: 900;
+  border-radius: 50%;
+  padding: 20px;
+  margin-top: 2px;
+  margin-right: 80px;
+}
+
+ul.main__content__container li.ticket__item div.ticket__price__logo {
+  height: auto;
+  margin-top: -105px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: 1px solid black;
 }
-li div {
-  display: inline-block;
+.ticket__price__logo span p {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  font-size: 24px;
+  color: rgba(33, 150, 243, 1);
 }
-li div:first-child {
-  margin-right: 10px;
+div.logo span:first-child {
+  position: relative;
+  top: -14px;
+  left: -10px;
+  font-style: italic;
+  color: white;
+  margin-right: 20px;
+}
+div.logo span:last-child {
+  position: relative;
+  top: -13px;
+  left: -10px;
+  font-size: 20px;
+  color: gray;
+  font-weight: 600;
+  font-style: italic;
+}
+div.content__row {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  width: 100%;
 }
 
-.logo{
-    background-color: rgb(146, 252, 40);
-    width: 36px;
-    height: 36px;
-    color: white;
-    font-weight: 900;
-    border-radius: 50%;
-    padding: 20px;
+.target__path div,
+.path__time div,
+.transfers div {
+  border: 1px solid black;
+  width: 33.3333 !important%;
+}
+
+.target__path
+  div:first-child
+  .path__time
+  div:first-child
+  .transfers
+  div:first-child {
+  font-size: 12px;
+  color: rgba(160, 176, 185, 1);
 }

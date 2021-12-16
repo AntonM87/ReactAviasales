@@ -1,3 +1,4 @@
-label{
+.sort__selection__panel label{
     cursor: pointer;
+    font-weight: 600;
 }
