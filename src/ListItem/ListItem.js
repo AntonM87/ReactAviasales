@@ -7,7 +7,7 @@ export default function ListItem(props) {
     const { tickets } = props;
 
     return (
-        <div>
+        <div className='listItemContainer'>
             <SortSelectionPanel />
             <ul className='main__content__container'>
                 {
@@ -24,7 +24,7 @@ export default function ListItem(props) {
 function ShowMoreFragmetn(props) {
     return (
         <>
-            <button>Показать еще 5 билетов</button>
+            <button className='showMore'>Показать еще 5 билетов</button>
         </>
     )
 }

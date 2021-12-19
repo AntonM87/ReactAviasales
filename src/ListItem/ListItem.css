@@ -16,3 +16,26 @@ ul.main__content__container li {
 ul.main__content__container li div {
   display: block;
 }
+
+.listItemContainer{
+  margin-bottom: 50px;
+}
+
+div.listItemContainer button.showMore {
+  cursor: pointer;
+  width: 100%;
+  background: #2196f3;
+  font-size: 12px;
+  color: white;
+  height: 50px;
+  font-family: inherit;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  transition: all linear .25s;
+}
+
+div.listItemContainer button.showMore:hover {
+  opacity: .7;
+}

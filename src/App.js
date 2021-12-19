@@ -25,17 +25,22 @@ export default class App extends React.Component {
 
     const ticketPackArr = Object.entries(this.ticketPackObj.tickets);
     this.setState({ ticketPackArr });
-
-
-    this.ticketPackArr = ticketPackArr;
-
   }
 
   render() {
     const { ticketPackArr } = this.state;
     const resArr = ticketPackArr.slice(0, 5);
 
-    console.log('ticketPackArr', this.ticketPackArr);
+    // if (resArr.length === 0) {
+    //   return (
+    //     <>
+    //       <h1>Opps</h1>
+    //       <h2>Что-то пошло не так</h2>
+    //       <h2>Попробуйте перезагрузить страницу</h2>
+    //       <h3>До Вас все работало!</h3>
+    //     </>
+    //   )
+    // }
 
     return (
       <div>
