@@ -13,9 +13,11 @@ export default class App extends React.Component {
     this.ticketPackObj = null;                  //результат ответа с билетами
     this.state = {
       ticketPackArr: [],
+      ticketPackArrLength: 5,
     }
 
     this.ticketPackArr = [];
+    this.getMoreTickets.bind = this.getMoreTickets.bind(this);
   }
 
   async componentDidMount() {
@@ -24,12 +26,24 @@ export default class App extends React.Component {
     this.ticketPackObj = await this.aviasalesAPI.getTicketPack(this.searchId);
 
     const ticketPackArr = Object.entries(this.ticketPackObj.tickets);
+    this.ticketPackArr = ticketPackArr;
     this.setState({ ticketPackArr });
   }
 
+  getMoreTickets() {
+    const ticketPackArrLength = this.state.ticketPackArrLength + 5;
+    this.setState({
+      ticketPackArrLength
+    })
+  }
+
   render() {
-    const { ticketPackArr } = this.state;
-    const resArr = ticketPackArr.slice(0, 5);
+
+    const ticketPackArr = this.ticketPackArr;
+    const resArr = ticketPackArr.slice(0, this.state.ticketPackArrLength);
+
+    // const { ticketPackArr } = this.state;
+    // const resArr = ticketPackArr.slice(0, 5);
 
     // if (resArr.length === 0) {
     //   return (
@@ -42,13 +56,18 @@ export default class App extends React.Component {
     //   )
     // }
 
+    // console.log('this.ticketpackArr', this.ticketPackArr);
+
     return (
       <div>
         <MainLogo />
         <div className='main__container'>
           <SortSelection />
           {/* обработать отсутсвие билетов */}
-          <ListItem tickets={resArr} />
+          <ListItem
+            tickets={resArr}
+            handlerGetMoreTickets={this.getMoreTickets}
+          />
         </div >
       </div>
     );
