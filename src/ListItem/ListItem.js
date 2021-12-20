@@ -4,6 +4,7 @@ import './ListItem.css';
 
 export default function ListItem(props) {
 
+    // const { tickets } = props;
     const { tickets, handlerGetMoreTickets } = props;
 
     return (
@@ -16,7 +17,9 @@ export default function ListItem(props) {
                     })
                 }
             </ul>
-            <ShowMoreFragmetn handlerGetMoreTickets={handlerGetMoreTickets} />
+            <ShowMoreFragmetn
+                handlerGetMoreTickets={handlerGetMoreTickets}
+            />
         </div>
     )
 }
@@ -25,7 +28,9 @@ function ShowMoreFragmetn(props) {
     const { handlerGetMoreTickets } = props;
     return (
         <>
-            <button onClick={() => { handlerGetMoreTickets() }} className='showMore'>Показать еще 5 билетов</button>
+            <button
+                onClick={() => { handlerGetMoreTickets() }}
+                className='showMore'>Показать еще 5 билетов</button>
         </>
     )
 }

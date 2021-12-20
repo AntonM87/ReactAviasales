@@ -66,9 +66,10 @@ export default class App extends React.Component {
           {/* обработать отсутсвие билетов */}
           <ListItem
             tickets={resArr}
-            handlerGetMoreTickets={this.getMoreTickets}
+          handlerGetMoreTickets={this.getMoreTickets}
           />
         </div >
+        <button onClick={() => { this.getMoreTickets() }}>more</button>
       </div>
     );
   }
