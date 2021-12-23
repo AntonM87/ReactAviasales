@@ -30,7 +30,7 @@
   user-select: none;
 }
 
-div.sort__selection__panel label[for="slowly"] {
+div.sort__selection__panel label[for="inexpensive"] {
   border-radius: 6px 0 0 6px;
 }
 .sort__selection__panel label[for="optimal"] {
@@ -38,7 +38,7 @@ div.sort__selection__panel label[for="slowly"] {
   border-right: 1px solid #999;
 }
 /* Checked */
-#slowly:checked + label,
+#inexpensive:checked + label,
 #fast:checked + label,
 #optimal:checked + label {
   transition: all linear 0.2s;
@@ -52,7 +52,7 @@ div.sort__selection__panel label[for="slowly"] {
 }
 
 /* Disabled */
-#slowly:disabled + label,
+#inexpensive:disabled + label,
 #fast:disabled + label,
 #optimal:disabled + label {
   background: #efefef;

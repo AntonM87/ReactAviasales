@@ -5,11 +5,11 @@ import './ListItem.css';
 export default function ListItem(props) {
 
     // const { tickets } = props;
-    const { tickets, handlerGetMoreTickets } = props;
+    const { tickets, handlerGetMoreTickets, handlerSelectSort } = props;
 
     return (
         <div className='listItemContainer'>
-            <SortSelectionPanel />
+            <SortSelectionPanel handlerSelectSort={handlerSelectSort} />
             <ul className='main__content__container'>
                 {
                     tickets.map((ticket, i) => {

@@ -5,7 +5,6 @@ export default function Item(props) {
 
     // туда ticket[1].segments[0]
 
-
     return (
         <li className='ticket__item'>
             <div className='ticket__price__logo'>
@@ -32,20 +31,18 @@ function ContentRowFragment(props) {
 
     const { segment } = props
 
-    const origin = segment.origin; //из (для лейбла)
+    const origin = segment.origin; //откуда (для лейбла)
     const destination = segment.destination //куда (для лейбла)
-    const duration__hours = (segment.duration / 60).toFixed(0); //часов
+
+    const duration__hours = Math.floor(segment.duration / 60); //часов
     const duration_minutes = segment.duration - (duration__hours * 60); // минут
 
     const trasferList = segment.stops; // список пересадок
-    const stops = segment.stops.length // пересадок
-    const time_origin = segment.date.match(/([0-9][0-9]):([0-9][0-9])/g)[0];
+    const stops = segment.stops.length // количество пересадок
 
-    const start = Date.parse(segment.date); //милилсекунд начало полета
-    const durationFly = segment.duration * 60000;
-    const end = new Date(start + durationFly);
+    const time_origin = segment.date.match(/([0-9][0-9]):([0-9][0-9])/g)[0]; // время отбытия
 
-    const objHourse_Minutes = getObjHourse_Minutes(segment.date, segment.duration)
+    const objHourse_Minutes = getObjHourse_Minutes(segment.date, segment.duration) // объект времени прибытия
 
     return (
         <>
@@ -55,7 +52,7 @@ function ContentRowFragment(props) {
                         {`${origin} - ${destination}`}
                     </div>
                     <div>
-                        {`${time_origin} - ${objHourse_Minutes.hourse}:${objHourse_Minutes.minutes}`}
+                        {`${time_origin} - ${concatPrevNull(objHourse_Minutes.hourse)}:${concatPrevNull(objHourse_Minutes.minutes)}`}
                     </div>
                 </div>
                 <div className='path__time'>
@@ -84,7 +81,7 @@ function ContentRowFragment(props) {
 // получить объект с минутами и часа на основе время отлета и продолжительности времени
 function getObjHourse_Minutes(date, duration) {
     const start = Date.parse(date);
-    const durationFly = duration * 60000;
+    const durationFly = duration * 60 * 1000;
     const end = new Date(start + durationFly);
     const hourse = end.getHours();
     const minutes = end.getMinutes();
@@ -108,6 +105,7 @@ function addSpace(price) {
         return result.concat(start, ' ', end,);
     }
 }
+
 function toString(val) {
     return val + '';
 }
@@ -139,4 +137,10 @@ function transferCounterValidtin(arr_length) {
             return "Пересадок"
             break;
     }
+}
+function concatPrevNull(val) {
+    if (val >= 0 && val <= 9) {
+        return `0${val}`;
+    }
+    return val
 }

@@ -1,31 +1,32 @@
 import './SortSelection.css'
-export default function SortSelection() {
+export default function SortSelection(props) {
+    const { radioSelectHandler } = props;
     return (
         <div className='main__selected__container'>
             <div>Количество пересадок</div>
-            <form>
+            <form onChange={(e) => { radioSelectHandler(e) }}>
                 <label>
-                    <input defaultChecked={true} type='checkbox' name="all" />
+                    <input defaultChecked={true} type='radio' value="all" name='lefSelectPanel' />
                     <span className='checkBox'></span>
                     <p>Все</p>
                 </label>
                 <label>
-                    <input type='checkbox' name="notDirect" />
+                    <input type='radio' value="notDirect" name='lefSelectPanel' />
                     <span className='checkBox'></span>
                     <p>Без пересадок</p>
                 </label>
                 <label>
-                    <input type='checkbox' name="one" />
+                    <input type='radio' value="one" name='lefSelectPanel' />
                     <span className='checkBox'></span>
                     <p>1 пересадка</p>
                 </label>
                 <label>
-                    <input type='checkbox' name="two" />
+                    <input type='radio' value="two" name='lefSelectPanel' />
                     <span className='checkBox'></span>
                     <p>2 пересадки</p>
                 </label>
                 <label>
-                    <input type='checkbox' name="three" />
+                    <input type='radio' value="three" name='lefSelectPanel' />
                     <span className='checkBox'></span>
                     <p>3 пересадки</p>
                 </label>
