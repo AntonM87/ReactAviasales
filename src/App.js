@@ -110,29 +110,21 @@ export default class App extends React.Component {
 
     this.sort(resArr, sort);
 
-    // resArr = resArr.filter(tickets => {
+    const filter = resArr.filter(ticket => {
+      if (radioButtonLeftPanel === 'all') {
+        return ticket;
+      } else if (radioButtonLeftPanel === 'notDirect') {
+        return ticket[1].segments[0].stops.length === 0 ? true : false;
+      } else if (radioButtonLeftPanel === 'one') {
+        return ticket[1].segments[0].stops.length === 1 ? true : false;
+      } else if (radioButtonLeftPanel === 'two') {
+        return ticket[1].segments[0].stops.length === 2 ? true : false;
+      } else if (radioButtonLeftPanel === 'three') {
+        return ticket[1].segments[0].stops.length === 3 ? true : false;
+      }
+    });
 
-    // }
-
-
-
-
-    
-    // const { ticketPackArr } = this.state;
-    // const resArr = ticketPackArr.slice(0, 5);
-
-    // if (resArr.length === 0) {
-    //   return (
-    //     <>
-    //       <h1>Opps</h1>
-    //       <h2>Что-то пошло не так</h2>
-    //       <h2>Попробуйте перезагрузить страницу</h2>
-    //       <h3>До Вас все работало!</h3>
-    //     </>
-    //   )
-    // }
-
-    // console.log('this.ticketpackArr', this.ticketPackArr);
+    console.log('ticketPackArr', ticketPackArr);
 
     return (
       <div>
@@ -141,14 +133,12 @@ export default class App extends React.Component {
           <SortSelection
             radioSelectHandler={this.radioSelect}
           />
-          {/* обработать отсутсвие билетов */}
           <ListItem
-            tickets={resArr}
+            tickets={filter}
             handlerGetMoreTickets={this.getMoreTickets}
             handlerSelectSort={this.selectSort}
           />
         </div >
-        <button onClick={() => { this.getMoreTickets() }}>more</button>
       </div>
     );
   }

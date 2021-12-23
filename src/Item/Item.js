@@ -31,6 +31,8 @@ function ContentRowFragment(props) {
 
     const { segment } = props
 
+    console.log(segment);
+
     const origin = segment.origin; //откуда (для лейбла)
     const destination = segment.destination //куда (для лейбла)
 
