@@ -16,7 +16,7 @@ export default class App extends React.Component {
       ticketPackArr: [],
       ticketPackArrLength: 5,
       sort: 'inexpensive',                          //состояние сортировки по умолчанию inexpensive(то есть дешевый)
-      radioButtonLeftPanel: 'all',                  //состояние боковой панелы выбора
+      radioButtonLeftPanel: '0',                      //состояние боковой панелы выбора, 0-all, 1-notDirect, 2-one, 3-two, 4-three
     }
 
     this.ticketPackArr = [];
@@ -60,19 +60,20 @@ export default class App extends React.Component {
     arr.sort((a, b) => {
       const price = a[1].price - b[1].price;
       const duration = a[1].segments[0].duration - b[1].segments[0].duration;
+
+      let result = 0;
+
       if (price < 0 || duration < 0) {
-        return -1
+        result = -1
       } else if (price > 0 || duration > 0) {
-        return 1
+        result = 1
       } else if (price > 0 || duration < 0) {
-        return -1
+        result = -1
       } else if (price < 0 || duration > 0) {
-        return -1
-      } else if (price == 0 || duration == 0) {
-        return 0
-      } else {
-        return 0
+        result = -1
       }
+
+      return result;
     })
   }
 
@@ -111,20 +112,32 @@ export default class App extends React.Component {
     this.sort(resArr, sort);
 
     const filter = resArr.filter(ticket => {
-      if (radioButtonLeftPanel === 'all') {
-        return ticket;
-      } else if (radioButtonLeftPanel === 'notDirect') {
-        return ticket[1].segments[0].stops.length === 0 ? true : false;
-      } else if (radioButtonLeftPanel === 'one') {
-        return ticket[1].segments[0].stops.length === 1 ? true : false;
-      } else if (radioButtonLeftPanel === 'two') {
-        return ticket[1].segments[0].stops.length === 2 ? true : false;
-      } else if (radioButtonLeftPanel === 'three') {
-        return ticket[1].segments[0].stops.length === 3 ? true : false;
+
+      const length = ticket[1].segments[0].stops.length;
+      let result;
+
+      switch (radioButtonLeftPanel) {
+        case '0':
+          result = true;
+          break;
+        case '1':
+          result = length === 0 ? true : false;
+          break;
+        case '2':
+          result = length === 1 ? true : false;
+          break;
+        case '3':
+          result = length === 2 ? true : false;
+          break;
+        case '4':
+          result = length === 3 ? true : false;
+          break;
       }
+
+      return result;
     });
 
-    console.log('ticketPackArr', ticketPackArr);
+    console.log('-------');
 
     return (
       <div>

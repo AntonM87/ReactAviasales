@@ -6,27 +6,27 @@ export default function SortSelection(props) {
             <div>Количество пересадок</div>
             <form onChange={(e) => { radioSelectHandler(e) }}>
                 <label>
-                    <input defaultChecked={true} type='radio' value="all" name='lefSelectPanel' />
+                    <input defaultChecked={true} type='radio' value='0' name='lefSelectPanel' />
                     <span className='checkBox'></span>
                     <p>Все</p>
                 </label>
                 <label>
-                    <input type='radio' value="notDirect" name='lefSelectPanel' />
+                    <input type='radio' value="1" name='lefSelectPanel' />
                     <span className='checkBox'></span>
                     <p>Без пересадок</p>
                 </label>
                 <label>
-                    <input type='radio' value="one" name='lefSelectPanel' />
+                    <input type='radio' value="2" name='lefSelectPanel' />
                     <span className='checkBox'></span>
                     <p>1 пересадка</p>
                 </label>
                 <label>
-                    <input type='radio' value="two" name='lefSelectPanel' />
+                    <input type='radio' value="3" name='lefSelectPanel' />
                     <span className='checkBox'></span>
                     <p>2 пересадки</p>
                 </label>
                 <label>
-                    <input type='radio' value="three" name='lefSelectPanel' />
+                    <input type='radio' value="4" name='lefSelectPanel' />
                     <span className='checkBox'></span>
                     <p>3 пересадки</p>
                 </label>
